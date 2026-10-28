@@ -1,0 +1,23 @@
+name: My First Pipeline
+
+# 1. The Trigger: When does this pipeline run?
+on: 
+  push:
+    branches:
+      - main
+
+# 2. The Engine: What server runs this?
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    # 3. The Tasks: What exactly are we doing?
+    steps:
+      - name: Download the code from the repository
+        uses: actions/checkout@v4
+
+      - name: Run a simulated deployment test
+        run: |
+          echo "Starting the build process..."
+          echo "Connecting to the database..."
+          echo "Success! The pipeline executed perfectly."
